@@ -1,0 +1,9 @@
+/*START #fh5co-header*/
+/* TOP の色 */
+.sf-menu li:hover a, 
+.sf-menu li.sfHover a, 
+.sf-menu ul li:hover a, 
+.sf-menu ul li.sfHover a, 
+.sf-menu li.active a {
+    color: #2d9c9b;;
+}
