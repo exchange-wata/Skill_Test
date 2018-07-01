@@ -45,24 +45,24 @@
 
 
         // image
-        $file_name = $_FILES['image']['name'];
+        $image = $_FILES['image']['name'];
         if (!empty($image)) {
             $file_type = substr($image, -4);
             $file_type = strtolower($file_type);
 
             if ($file_type != '.jpg' && $file_type != '.png' && $file_type != '.gif' && $file_type != 'jpeg') {
                 $errors['image'] = 'type';
-            }else{
+            }
+        }else{
               //ファiイルがないときの処理
             $errors['image'] = 'blank';
 
-            }
         }
 
         if (empty($errors)) {
             date_default_timezone_set('Asia/Tokyo'); 
             $date_str = date('YmdHis'); 
-            $submit_file_name = $date_str . $file_name;
+            $submit_file_name = $date_str . $image;
             
             move_uploaded_file($_FILES['image']['tmp_name'], '../user_image/' . $submit_file_name);
 

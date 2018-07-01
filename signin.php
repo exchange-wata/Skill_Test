@@ -8,6 +8,7 @@ $errors = array();
   if (!empty($_POST)) { 
       $name= $_POST['name'];
       $password = $_POST['password'];
+       $count = strlen($password);
 
     if($name == ''){
       $errors['name'] = 'blank';
@@ -16,6 +17,10 @@ $errors = array();
     if($password == ''){
       $errors['password'] = 'blank';
     }
+
+    elseif ($count < 4 || $count > 16) {
+            $errors['password'] = 'length';
+        }
 
     if ($name != '' && $password != '' ) {
       // データベースとの照合処理
@@ -98,6 +103,9 @@ $errors = array();
             <?php if(isset($errors['password'])&& $errors['password'] == 'blank') { ?>
               <p class="text-danger">パスワードを正しく入力してください</p>
             <?php } ?>
+            <?php if(isset($errors['password']) && $errors['password'] == 'length') { ?>
+                        <span class="text-danger">パスワードは4〜16文字で入力してください</span>
+                        <?php } ?>
             <?php if(isset($errors['signin']) && $errors['signin'] == 'failed') { ?>
               <p class="text-danger">サインインに失敗しました</p>
             <?php } ?>

@@ -25,22 +25,22 @@
        }
 
     // book_img
-    $file_name = $_FILES['book_img']['name'];
+    $book_img = $_FILES['book_img']['name'];
     if (!empty($book_img)) {
         $file_type = substr($book_img, -4);
         $file_type = strtolower($file_type);
 
         if ($file_type != '.jpg' && $file_type != '.png' && $file_type != '.gif' && $file_type != 'jpeg') {
             $errors['book_img'] = 'type';
-        }else{
-        $errors['book_img'] = 'blank';
         }
+    }else{
+        $errors['book_img'] = 'blank';   
     }
 
     if (empty($errors)) {
         date_default_timezone_set('Asia/Tokyo'); 
         $date_str = date('YmdHis'); 
-        $submit_file_name = $date_str . $file_name;
+        $submit_file_name = $date_str . $book_img;
         
         move_uploaded_file($_FILES['book_img']['tmp_name'], 'book_img/' . $submit_file_name);
 
@@ -106,6 +106,7 @@
           </div>
 
 
+<div class="form-group">
           <input type="file" name="book_img" id="book_img" accept="iamage/*">
             <?php if(isset($errors['book_img']) && $errors['book_img'] == 'blank') { ?>
             <p class="text-danger">画像を選択してください</p>
@@ -113,6 +114,8 @@
             <?php if(isset($errors['book_img']) && $errors['book_img'] == 'type') { ?>
             <p class="text-danger">拡張子が「jpg」「png」「gif」の画像を選択してください</p>
             <?php } ?>
+
+          </div>
 
                     
           <input type="submit" class="btn btn-info" value="追加">
