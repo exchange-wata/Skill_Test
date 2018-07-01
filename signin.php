@@ -43,6 +43,8 @@ $errors = array();
           echo "<h1>認証成功</h1>";
           //SESSION変数にIDを保存
           $_SESSION['id'] = $record['id'];
+          $_SESSION['name'] = $record['name'];
+          $_SESSION['image'] = $record['image'];
           
           header("Location: gallery.php");
           exit();
