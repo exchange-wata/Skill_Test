@@ -36,27 +36,28 @@
 	
 	$errors = array();
 
-	if (isset($_POST)) {
+	if (!empty($_POST)) {
 		$name = $_POST['name'];
 
 		if ($name == '') {
             $errors['name'] = 'blank';
-        }else{
-            // require('dbconnect.php');
-
-            $cnt_sql = 'SELECT COUNT(*) as `cnt` FROM `users` WHERE `name`=?';
-            $cnt_data = array($name);
-            $cnt_stmt = $dbh->prepare($cnt_sql);
-            $cnt_stmt->execute($cnt_data);
-
-            // $dbh = null;
-
-            $rec = $cnt_stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($rec['cnt'] > 0) {
-                $errors['name'] = 'duplication';
-            }
         }
+        // else{
+        //     // require('dbconnect.php');
+
+        //     $cnt_sql = 'SELECT COUNT(*) as `cnt` FROM `users` WHERE `name`=?';
+        //     $cnt_data = array($name);
+        //     $cnt_stmt = $dbh->prepare($cnt_sql);
+        //     $cnt_stmt->execute($cnt_data);
+
+        //     // $dbh = null;
+
+        //     $rec = $cnt_stmt->fetch(PDO::FETCH_ASSOC);
+
+        //     if ($rec['cnt'] > 0) {
+        //         $errors['name'] = 'duplication';
+        //     }
+        // }
 
         //画像名を取得
         $user_image = $_FILES['user_image']['name'];
@@ -87,7 +88,7 @@
     // require('dbconnect.php');
 
     if ($count > 14) {
-        $edit_sql='UPDATE `users` SET `name`=?, `user_image`=? WHERE `id`=?';
+        $edit_sql='UPDATE `users` SET `name`=?, `image`=? WHERE `id`=?';
 
         $edit_data=array($name,$user_image,$_SESSION['id']);
     }else{
@@ -99,12 +100,12 @@
     $edit_stmt = $dbh->prepare($edit_sql);
     $edit_stmt->execute($edit_data);
 
+    header("Location:mypage.php");
+
 	}
 }
-	// var_dump($_SESSION);
 
-echo $name;
-var_dump($_POST);
+	var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -236,6 +237,11 @@ var_dump($_POST);
 								<div class="form-group">
 									<label for="name" class="sr-only"></label>
 									<textarea placeholder="Name" name="name" id="name" type="text" class="form-control input-lg"><?php echo $user['name']; ?></textarea>
+<?php if(isset($errors['name']) && $errors['name'] == 'blank') { ?>
+                        <span class="text-danger">お名前を入力してください</span>
+                        <?php } ?>
+                        
+
 								</div>	
 							</div>
 							

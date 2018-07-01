@@ -51,7 +51,7 @@
         <div class="row">
           <div class="col-xs-12">
 
-             <div class="col-xs-4">
+             <div class="form-group col-xs-4">
             <img src="../user_image/<?php echo htmlspecialchars($image); ?>" class="img-responsive img-thumbnail">
           </div>
               <div class="form-group">

@@ -50,17 +50,18 @@
         <div class="row">
           <div class="col-xs-12">
 
-             <div class="col-xs-4">
+             <div class="form-group col-xs-4">
             <img src="book_img/<?php echo htmlspecialchars($book_img); ?>" class="img-responsive img-thumbnail">
           </div>
+
               <div class="form-group">
               <span>タイトル</span>
-              <p class="lead text-center"><?php echo htmlspecialchars($book_title); ?>&nbsp;様</p>
+              <p class="lead text-center"><?php echo htmlspecialchars($book_title); ?></p>
             </div>
             
               <div class="form-group">
               <span>理由</span>
-              <p class="lead text-center"><?php echo htmlspecialchars($reason); ?>&nbsp;様</p>
+              <p class="lead text-center"><?php echo htmlspecialchars($reason); ?></p>
             </div>
             
             <form method="POST" action="">
@@ -68,7 +69,7 @@
               <input type="hidden" name="action" value="submit">
               <input type="submit" class="btn btn-secondary btn-lg btn-block" value="おすすめへ追加 " style="margin-top: 50px;">
               
-              <a href="signup.php" class="btn btn-default btn-lg btn-block">&laquo;&nbsp;戻る</a>
+              <a href="new_add_gallery.php" class="btn btn-default btn-lg btn-block">&laquo;&nbsp;戻る</a>
             </form>
           </div>
         </div>
