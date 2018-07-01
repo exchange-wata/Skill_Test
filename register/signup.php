@@ -72,7 +72,7 @@
 
             header('Location: check.php');
             exit();
-}
+        }
     }
 
     // echo $date_str;
@@ -83,51 +83,60 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="utf-8">
     <title>signup</title>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/signup.css">
-
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/signin.css">
 </head>
-<body>
+<body style="margin-top: 60px;">
 
-    <div class="container">
-    <div class="login-container">
-            <div id="output"></div>
-            <div class="avatar"></div>
-            <div class="form-box">
-                <form action="signup.php" method="post"  enctype="multipart/form-data">
-                    <input name="name" type="text" placeholder="username">
-                        <?php if(isset($errors['name']) && $errors['name'] == 'blank') { ?>
-                        <span class="text-danger">お名前を入力してください</span>
-                        <?php } ?>
-                        <?php if(isset($errors['name']) && $errors['name'] == 'duplication') { ?>
-                        <span class="text-danger">すでに存在するお名前です</span>
-                        <?php } ?>
+<div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 thumbnail">
+        <h2 class="text-center content_header">新規登録</h2>
+            <form action="signup.php" method="post"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <p>NAME</p>
+                    <textarea name="name" type="text" class="form-control input-lg" id="name" placeholder="your name"></textarea>
+                    <?php if(isset($errors['name']) && $errors['name'] == 'blank') { ?>
+                    <p class="text-danger">お名前を入力してください</p>
+                    <?php } ?>
+                    <?php if(isset($errors['name']) && $errors['name'] == 'duplication') { ?>
+                    <p class="text-danger">すでに存在するお名前です</p>
+                    <?php } ?>
+                </div>
 
-                    <input type="file" name="image" id="image" accept="iamage/*">
-                        <?php if(isset($errors['image']) && $errors['image'] == 'blank') { ?>
-                        <p class="text-danger">画像を選択してください</p>
-                        <?php } ?>
-                        <?php if(isset($errors['image']) && $errors['image'] == 'type') { ?>
-                        <p class="text-danger">拡張子が「jpg」「png」「gif」の画像を選択してください</p>
-                        <?php } ?>
+                <div class="form-group">
+                    <p>PASSWORD</p>
+                    <textarea type="password" class="form-control input-lg" id="password" placeholder="password" name="password"></textarea>
+                    <?php if(isset($errors['password']) && $errors['password'] == 'blank') { ?>
+                    <span class="text-danger">パスワードを入力してください</span>
+                    <?php } ?>
+                    <?php if(isset($errors['password']) && $errors['password'] == 'length') { ?>
+                    <span class="text-danger">パスワードは4〜16文字で入力してください</span>
+                    <?php } ?>
+                </div>
 
-                    <input type="password" placeholder="password" name="password">
-                        <?php if(isset($errors['password']) && $errors['password'] == 'blank') { ?>
-                        <span class="text-danger">パスワードを入力してください</span>
-                        <?php } ?>
-                        <?php if(isset($errors['password']) && $errors['password'] == 'length') { ?>
-                        <span class="text-danger">パスワードは4〜16文字で入力してください</span>
-                        <?php } ?>
-
-                    <button class="btn btn-info btn-block login" type="submit">Login</button>
-                </form>
-            </div>
+                <div class="form-group">
+                    <p>IMAGE</p>
+                    <input type="file" name="image" id="image" class="form-control input-lg" accept="iamage/*">
+                    <?php if(isset($errors['image']) && $errors['image'] == 'blank') { ?>
+                    <p class="text-danger">画像を選択してください</p>
+                    <?php } ?>
+                    <?php if(isset($errors['image']) && $errors['image'] == 'type') { ?>
+                    <p class="text-danger">拡張子が「jpg」「png」「gif」の画像を選択してください</p>
+                    <?php } ?>
+                </div>
+                
+                <button class="btn btn-info col-xs-8 col-xs-offset-2" type="submit">SIGN UP</button>
+            </form>
         </div>
-        
+    </div>    
 </div>
 
 <script src="../assets/js/signup.js"></script>
