@@ -1,0 +1,51 @@
+/*最上部バー*/
+h1>a{
+	border-bottom: none;
+	color: #2d9c9b;
+}
+
+h1>a:hover{
+	color: #fff;
+}
+
+.pull-left{
+	margin-top: 15px;
+	/*color: #fff;*/
+}
+
+.sf-menu li.active a {
+    color: #2d9c9b;
+}
+
+#fh5co-header-section {
+	position:fixed;
+	background: #57cecd;
+	height: 70px;
+}
+
+#fh5co-menu-wrap .sf-menu a {
+    /*padding: 2em 1em;*/
+    padding: 1.3em 1em;
+}
+
+
+/*丸いアイコン*/
+#fh5co-hero .fh5co-arrow{
+	background:#cd5c5c;
+}
+
+ #fh5co-footer .fh5co-arrow {
+	background:#cd5c5c;
+}
+
+
+/*footer*/
+#fh5co-footer {
+    clear: both;
+    position: relative;
+    padding: 7em 0 1em 0;
+    background: #57cecd;
+    background: #f3f8f9;
+    float: left;
+    width: 100%;
+}

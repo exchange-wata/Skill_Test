@@ -1,11 +1,11 @@
 <?php
 
-  session_start();
+    session_start();
 
-  if (!isset($_SESSION['register'])) {
-    header("Location: signup.php");
-    exit();
-  }
+    if (!isset($_SESSION['register'])) {
+      header("Location: signup.php");
+      exit();
+    }
 
     // SESSIONを用いて受け取り
     $name = $_SESSION['register']['name'];
@@ -34,54 +34,48 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <title>PHILIALE</title>
-  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/style_r.css">
-  <link rel="shortcut icon" href="../assets/img/favicon/favicon.ico" type="image/vnd.microsoft.icon">
-  <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/vnd.microsoft.icon">
-</head>
-<body style="margin: 60px 0;">
-  <div class="container">
-    <div class="row">
-      
-        <div class="col-xs-12 col-md-6 col-md-offset-3" style="height:500px;">
-        <h2 class="text-center">登録情報の確認</h2>
-        <br><br><br>
-        <div class="row">
-          <div class="col-xs-12">
+    <meta charset="utf-8">
+    <title>check</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
-             <div class="form-group col-xs-4">
-            <img src="../user_image/<?php echo htmlspecialchars($image); ?>" class="img-responsive img-thumbnail">
-          </div>
-              <div class="form-group">
-              <span>お名前</span>
-              <p class="lead text-center"><?php echo htmlspecialchars($name); ?>&nbsp;様</p>
+    <link rel="stylesheet" type="text/css" href="../assets/css/gallery_check.css">
+</head>
+<body style="margin: 50px;">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <h2 class="text-center">登録情報の確認</h2>
+            <div class="row">
+                <form method="POST" action="check.php">
+                    <div class="form-group">
+                        <p>NAME</p>
+                        <textarea placeholder="name" name="name" id="name" type="text" class="form-control input-lg">
+                        <?php echo htmlspecialchars($name); ?>&nbsp;様</textarea>
+                    </div>
+        
+                    <div class="form-group">
+                        <p>PASSWORD</p>
+                        <textarea placeholder="password" name="password" id="password" type="text" class="form-control input-lg">●●●●●●●●
+                        </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <p>IMAGE</p>
+                        <img src="../user_image/<?php echo htmlspecialchars($image); ?>" alt="image" class="img-responsive1 form-control">
+                    </div>
+          
+                    <input type="hidden" name="action" value="submit">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="  ユーザー登録  " style="margin-top: 30px;">
+                    
+                    <a href="signup.php" class="btn btn-default btn-lg btn-block">&laquo;&nbsp;戻る</a>
+                </form>
             </div>
-            
-              <!-- <div class="form-group">
-              <span>メールアドレス</span>
-              <p class="lead text-center"><?php echo htmlspecialchars($email); ?></p>
-            </div> -->
-            
-              <div class="form-group">
-              <span>パスワード</span>
-              
-              <p class="lead text-center">●●●●●●●●</p>
-            </div>
-            
-            <form method="POST" action="">
-              
-              <input type="hidden" name="action" value="submit">
-              <input type="submit" class="btn btn-secondary btn-lg btn-block" value="  ユーザー登録  " style="margin-top: 50px;">
-              
-              <a href="signup.php" class="btn btn-default btn-lg btn-block">&laquo;&nbsp;戻る</a>
-            </form>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+ 
   
 </body>
 </html>

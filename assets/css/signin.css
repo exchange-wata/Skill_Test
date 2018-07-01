@@ -1,0 +1,13 @@
+/*サインインボタン*/
+.btn-info {
+    /*background: #57cecd;*/
+    background: #2d9c9b;
+}
+
+.thumbnail{
+	border-color:#2d9c9b; 
+}
+
+textarea{
+	resize: none;
+}
