@@ -101,6 +101,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<?php include("partial/link_css.php"); ?>
 	<link rel="stylesheet" type="text/css" href="assets/css/mypage.css">
+
+
+	<!-- 削除した時のアラート -->
+	<script>
+		function alertFunction() {
+			alert("本当に削除してもよろしいですか？");
+		}
+	</script>
   	
 </head>
 <body>
@@ -145,7 +153,7 @@
 							<button>edit</button>
 						</a>
 						<a href="delete.php?id=<?php echo $m['id']; ?>">
-							<button>delete</button>
+							<button onclick="alertFunction()">delete</button>
 						</a>
 					</div>
 				<?php } ?>
