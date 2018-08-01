@@ -57,7 +57,7 @@
 	    $edit_stmt = $dbh->prepare($edit_sql);
 	    $edit_stmt->execute($edit_data);
 
-	    header("Location:mypage.php");
+	    header("Location:profile.php");
 
 		}
 	}
@@ -94,7 +94,7 @@
 					<a href="mypage.php">MY GALLERY</a>
 				</li>
 				
-				<li><a href="#fh5co-contact">PROFILE</a></li>
+				<!-- <li><a href="#fh5co-contact">PROFILE</a></li> -->
 				
 				<li><a href="signout.php">SIGN OUT</a></li>
 			</ul>
@@ -113,7 +113,7 @@
 				</div>
 				
 				<div class="col-md-8">
-					<form action="mypage.php" method="post" enctype="multipart/form-data">
+					<form action="profile.php" method="post" enctype="multipart/form-data">
 						<div class="col-md-12">
 							<div class="form-group">
 								<p>NAME</p>
