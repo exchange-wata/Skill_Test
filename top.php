@@ -30,7 +30,8 @@
 				</li>
 				
 				<li>
-					<a href="signin.php">LOG IN</a>
+					<a onclick="load_signin()">LOG IN</a>
+					<div id="signin"></div>
 				</li>
 				
 				<li>
@@ -74,7 +75,11 @@
 		<div class="fh5co-spacer fh5co-spacer-md"></div>
 	</div>
 </footer>
+
 		
+<script src="assets/js/signin.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 		
 <?php include("partial/gallery_js.php"); ?>
 
