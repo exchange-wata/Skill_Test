@@ -4,7 +4,7 @@
   	<!-- Google Webfont -->
 	<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'> -->
 	<!-- Themify Icons -->
-	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<!-- <link rel="stylesheet" href="assets/css/themify-icons.css"> -->
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 	<!-- Owl Carousel -->

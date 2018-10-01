@@ -1,60 +1,5 @@
-<?php
-    session_start();
 
-    require('dbconnect.php');
-
-    $errors = array();
-
-    if (!empty($_POST)) { 
-        $name= $_POST['name'];
-        $password = $_POST['password'];
-        $count = strlen($password);
-
-        if($name == ''){
-          $errors['name'] = 'blank';
-        }
-
-        if($password == ''){
-          $errors['password'] = 'blank';
-        }
-
-        elseif ($count < 4 || $count > 16) {
-            $errors['password'] = 'length';
-        }
-
-        if ($name != '' && $password != '' ) {
-            $sql = 'SELECT * FROM `users` WHERE `name`=?';
-            $data = array($name);
-            $stmt = $dbh->prepare($sql);
-            $stmt->execute($data);
-            $record = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($record == false) {
-                $errors['signin'] = 'failed';
-            }else {
-                if (password_verify($password,$record['password'])) {
-                    $_SESSION['id'] = $record['id'];
-                    $_SESSION['name'] = $record['name'];
-                    $_SESSION['image'] = $record['image'];
-                
-                header("Location: gallery.php");
-                exit();
-
-                }else{
-                  $errors['signin'] = 'failed';
-                }
-
-            }
-
-
-        }
-
-    }
-
-// var_dump($errors);
-
-?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
@@ -63,13 +8,19 @@
     <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/signin.css">
-</head>
-<body style="margin-top: 60px;">
-<div class="container">
+</head> -->
+<!-- <?php { ?> -->
+<!-- <body style="margin-top: 60px;"> -->
+<div id="modal-content" class="container" style="display: none;"> 
+    <!-- <div id="modal-content">
+    <p>「閉じる」か「背景」をクリックするとモーダルウィンドウを終了します。</p> -->
+    <p><a id="modal-close" class="button-link">×</a></p>
+<!-- </div> -->
+
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2 thumbnail">
           <h2 class="text-center content_header">ログイン</h2>
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="signin.php" enctype="multipart/form-data">
               
                 <div class="form-group">
                     <p>NAME</p>
@@ -97,10 +48,15 @@
         </div>
     </div>
 </div>
+<!-- <?php } ?> -->
 
-　<script src="assets/js/signin.js"></script>
-  <script src="assets/js/jquery-3.1.1.js"></script>
+　
+  <!-- <script src="assets/js/jquery-3.1.1.js"></script> -->
+
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script src="assets/js/signin2.js"></script>
   <script src="assets/js/jquery-migrate-1.4.1.js"></script>
-  <script src="assets/js/bootstrap.js"></script>
-</body>
+  <script src="assets/js/bootstrap.js"></script> -->
+<!-- </body>
 </html>
