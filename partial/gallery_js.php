@@ -24,7 +24,7 @@
 <!-- FastClick for Mobile/Tablets -->
 <script src="assets/js/fastclick.js"></script>
 <!-- Parallax -->
-<script src="assets/js/jquery.parallax-scroll.min.js"></script>
+<!-- <script src="assets/js/jquery.parallax-scroll.min.js"></script> -->
 <!-- Waypoints -->
 <script src="assets/js/jquery.waypoints.min.js"></script>
 <!-- Main JS -->

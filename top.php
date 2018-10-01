@@ -1,3 +1,61 @@
+<?php
+    session_start();
+
+    require('dbconnect.php');
+
+    // var_dump($_POST);
+
+    $errors = array();
+
+    if (!empty($_POST)) { 
+        $name= $_POST['name'];
+        $password = $_POST['password'];
+        $count = strlen($password);
+
+        if($name == ''){
+          $errors['name'] = 'blank';
+        }
+
+        if($password == ''){
+          $errors['password'] = 'blank';
+        }
+
+        elseif ($count < 4 || $count > 16) {
+            $errors['password'] = 'length';
+        }
+
+        if ($name != '' && $password != '' ) {
+            $sql = 'SELECT * FROM `users` WHERE `name`=?';
+            $data = array($name);
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute($data);
+            $record = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($record == false) {
+                $errors['signin'] = 'failed';
+            }else {
+                if (password_verify($password,$record['password'])) {
+                    $_SESSION['id'] = $record['id'];
+                    $_SESSION['name'] = $record['name'];
+                    $_SESSION['image'] = $record['image'];
+                
+                header("Location: gallery.php");
+                exit();
+
+                }else{
+                  $errors['signin'] = 'failed';
+                }
+
+            }
+
+
+        }
+
+    }
+
+// var_dump($errors);
+
+?>
 <!DOCTYPE html>
 <html class="ja">
 <head>
@@ -8,6 +66,12 @@
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
+
+	<!-- signin.php -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/signin.css">
 
   	<?php include("partial/link_css.php"); ?>
   	<link rel="stylesheet" href="assets/css/top.css">
@@ -30,8 +94,13 @@
 				</li>
 				
 				<li>
-					<a onclick="load_signin()">LOG IN</a>
+					<!-- signin.js -->
+					<!-- <a onclick="load_signin()">LOG IN</a>
 					<div id="signin"></div>
+ -->
+
+					<!-- signin2.js -->
+					<a id="modal-open" class="button-link">LOG IN</a>
 				</li>
 				
 				<li>
@@ -42,7 +111,9 @@
 	</div>
 </header>
 	
-	
+<!-- signin modal -->
+	<?php include("signin.php"); ?>
+
 <div id="fh5co-hero" style="background-image: url(assets/img/tmu_lib1.JPG);">
 	<div class="overlay"></div>
 		<a href="#" class="smoothscroll fh5co-arrow to-animate hero-animate-4">
@@ -76,9 +147,21 @@
 	</div>
 </footer>
 
-		
-<script src="assets/js/signin.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+
+<!-- Remember to include jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="assets/js/signin2.js"></script>
+<script src="assets/js/jquery-migrate-1.4.1.js"></script>
+<script src="assets/js/bootstrap.js"></script>
 
 		
 <?php include("partial/gallery_js.php"); ?>
