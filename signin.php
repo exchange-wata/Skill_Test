@@ -1,20 +1,11 @@
-
-<!-- <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <title>signin</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
-</head> -->
-<!-- <?php { ?> -->
 <!-- <body style="margin-top: 60px;"> -->
-<div id="modal-content" class="container" style="display: none;"> 
+<div id="modal-content" class="container"> 
     <!-- <div id="modal-content">
     <p>「閉じる」か「背景」をクリックするとモーダルウィンドウを終了します。</p> -->
-    <p><a id="modal-close" class="button-link">×</a></p>
+    <!-- <p><a id="modal-close" class="button-link">×</a></p> -->
+    <div id="btn-close">
+        <i id="modal-close" class="fa fa-2x fa-times"></i>
+      </div>
 <!-- </div> -->
 
     <div class="row">
@@ -48,15 +39,3 @@
         </div>
     </div>
 </div>
-<!-- <?php } ?> -->
-
-　
-  <!-- <script src="assets/js/jquery-3.1.1.js"></script> -->
-
-  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-<script src="assets/js/signin2.js"></script>
-  <script src="assets/js/jquery-migrate-1.4.1.js"></script>
-  <script src="assets/js/bootstrap.js"></script> -->
-<!-- </body>
-</html>
