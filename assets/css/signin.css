@@ -12,8 +12,13 @@ textarea{
 	resize: none;
 }
 
+.row{
+	clear: both;
+}
+
 /* modal */
 #modal-content{
+	display: none;
 	width:50%;
 	margin:1.5em auto 0;
 	padding:10px 20px;
@@ -52,3 +57,7 @@ textarea{
 	background-color:rgba(0,0,0,0.75);
 }
 
+#btn-close{
+	float: right;
+	/*margin-bottom: 10px;*/
+}

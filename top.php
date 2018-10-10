@@ -71,10 +71,14 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
+    <!-- <link rel="stylesheet" href="assets/css/signin.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 
   	<?php include("partial/link_css.php"); ?>
   	<link rel="stylesheet" href="assets/css/top.css">
+
+  	<link rel="stylesheet" href="assets/css/signin.css">
 
 </head>
 <body>
@@ -155,7 +159,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
 <!-- jQuery Modal -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
